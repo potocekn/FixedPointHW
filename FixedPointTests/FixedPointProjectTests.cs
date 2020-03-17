@@ -162,8 +162,8 @@ namespace FixedPointTests
         {
             Fixed<Q8_24> a = new Fixed<Q8_24>(256);
             Fixed<Q8_24> b = new Fixed<Q8_24>(-1);
-            Fixed<Q8_24> r = a.Add(b);
-            Assert.AreEqual("-1", r.ToString());
+            Fixed<Q8_24> r = a.Multiply(b);
+            Assert.AreEqual("0", r.ToString());
         }
 
         [TestMethod]
@@ -171,8 +171,8 @@ namespace FixedPointTests
         {
             Fixed<Q8_24> a = new Fixed<Q8_24>(-256);
             Fixed<Q8_24> b = new Fixed<Q8_24>(-1);
-            Fixed<Q8_24> r = a.Add(b);
-            Assert.AreEqual("-1", r.ToString());
+            Fixed<Q8_24> r = a.Multiply(b);
+            Assert.AreEqual("0", r.ToString());
         }
 
         //Division
@@ -486,28 +486,195 @@ namespace FixedPointTests
         [TestMethod]
         public void AddQ24_8TestUsingBiggerNumberBothPositive()
         {
-            Fixed<Q24_8> a = new Fixed<Q24_8>(4294967296);
+            Fixed<Q24_8> a = new Fixed<Q24_8>(134217727);
             Fixed<Q24_8> b = new Fixed<Q24_8>(1);
             Fixed<Q24_8> r = a.Add(b);
-            Assert.AreEqual("1", r.ToString());
+            Assert.AreEqual("0", r.ToString());
         }
 
         [TestMethod]
         public void AddQ24_8TestUsingBiggerNumberOnePositiveOneNegative()
         {
-            Fixed<Q24_8> a = new Fixed<Q24_8>(4294967296);
+            Fixed<Q24_8> a = new Fixed<Q24_8>(134217729);
             Fixed<Q24_8> b = new Fixed<Q24_8>(-1);
             Fixed<Q24_8> r = a.Add(b);
-            Assert.AreEqual("-1", r.ToString());
+            Assert.AreEqual("0", r.ToString());
         }
 
         [TestMethod]
         public void AddQ24_8TestUsingBiggerNumberBothNegative()
         {
-            Fixed<Q24_8> a = new Fixed<Q24_8>(-4294967296);
+            Fixed<Q24_8> a = new Fixed<Q24_8>(-134217727);
             Fixed<Q24_8> b = new Fixed<Q24_8>(-1);
             Fixed<Q24_8> r = a.Add(b);
-            Assert.AreEqual("-1", r.ToString());
+            Assert.AreEqual("0", r.ToString());
+        }
+
+        //Substract
+        [TestMethod]
+        public void SubstractQ24_8TestBothSmallAndPositive()
+        {
+            Fixed<Q24_8> a = new Fixed<Q24_8>(2);
+            Fixed<Q24_8> b = new Fixed<Q24_8>(1);
+            Fixed<Q24_8> r = a.Substract(b);
+            Assert.AreEqual("1", r.ToString());
+        }
+
+        [TestMethod]
+        public void SubstractQ24_8TestBothSmallOnePositiveOneNegative()
+        {
+            Fixed<Q24_8> a = new Fixed<Q24_8>(1);
+            Fixed<Q24_8> b = new Fixed<Q24_8>(-2);
+            Fixed<Q24_8> r = a.Substract(b);
+            Assert.AreEqual("3", r.ToString());
+        }
+
+        [TestMethod]
+        public void SubstractQ24_8TestBothSmallBothNegative()
+        {
+            Fixed<Q24_8> a = new Fixed<Q24_8>(-1);
+            Fixed<Q24_8> b = new Fixed<Q24_8>(-2);
+            Fixed<Q24_8> r = a.Substract(b);
+            Assert.AreEqual("1", r.ToString());
+        }
+
+        [TestMethod]
+        public void SubstractQ24_8TestUsingBiggerNumberBothPositive()
+        {
+            Fixed<Q24_8> a = new Fixed<Q24_8>(134217729);
+            Fixed<Q24_8> b = new Fixed<Q24_8>(1);
+            Fixed<Q24_8> r = a.Substract(b);
+            Assert.AreEqual("0", r.ToString());
+        }
+
+        [TestMethod]
+        public void SubstractQ24_8TestUsingBiggerNumberOnePositiveOneNegative()
+        {
+            Fixed<Q24_8> a = new Fixed<Q24_8>(134217727);
+            Fixed<Q24_8> b = new Fixed<Q24_8>(-1);
+            Fixed<Q24_8> r = a.Substract(b);
+            Assert.AreEqual("0", r.ToString());
+        }
+
+        [TestMethod]
+        public void SubstractQ24_8TestUsingBiggerNumberBothNegative()
+        {
+            Fixed<Q24_8> a = new Fixed<Q24_8>(-134217728);
+            Fixed<Q24_8> b = new Fixed<Q24_8>(-1);
+            Fixed<Q24_8> r = a.Substract(b);
+            Assert.AreEqual("1", r.ToString());
+        }
+
+        //Multiply
+
+        [TestMethod]
+        public void MultiplyQ24_8TestBothSmallAndPositive()
+        {
+            Fixed<Q24_8> a = new Fixed<Q24_8>(2);
+            Fixed<Q24_8> b = new Fixed<Q24_8>(2);
+            Fixed<Q24_8> r = a.Multiply(b);
+            Assert.AreEqual("4", r.ToString());
+        }
+
+        [TestMethod]
+        public void MultiplyQ24_8TestBothSmallOnePositiveOneNegative()
+        {
+            Fixed<Q24_8> a = new Fixed<Q24_8>(1);
+            Fixed<Q24_8> b = new Fixed<Q24_8>(-2);
+            Fixed<Q24_8> r = a.Multiply(b);
+            Assert.AreEqual("-2", r.ToString());
+        }
+
+        [TestMethod]
+        public void MultiplyQ24_8TestBothSmallBothNegative()
+        {
+            Fixed<Q24_8> a = new Fixed<Q24_8>(-1);
+            Fixed<Q24_8> b = new Fixed<Q24_8>(-2);
+            Fixed<Q24_8> r = a.Multiply(b);
+            Assert.AreEqual("2", r.ToString());
+        }
+
+        [TestMethod]
+        public void MultiplyQ24_8TestUsingBiggerNumberBothPositive()
+        {
+            Fixed<Q24_8> a = new Fixed<Q24_8>(134217728);
+            Fixed<Q24_8> b = new Fixed<Q24_8>(2);
+            Fixed<Q24_8> r = a.Multiply(b);
+            Assert.AreEqual("0", r.ToString());
+        }
+
+        [TestMethod]
+        public void MultiplyQ24_8TestUsingBiggerNumberOnePositiveOneNegative()
+        {
+            Fixed<Q24_8> a = new Fixed<Q24_8>(134217728);
+            Fixed<Q24_8> b = new Fixed<Q24_8>(-1);
+            Fixed<Q24_8> r = a.Multiply(b);
+            Assert.AreEqual("0", r.ToString());
+        }
+
+        [TestMethod]
+        public void MultiplyQ24_8TestUsingBiggerNumberBothNegative()
+        {
+            Fixed<Q24_8> a = new Fixed<Q24_8>(-134217728);
+            Fixed<Q24_8> b = new Fixed<Q24_8>(-1);
+            Fixed<Q24_8> r = a.Multiply(b);
+            Assert.AreEqual("0", r.ToString());
+        }
+
+        //Division
+
+        [TestMethod]
+        public void DivideQ24_8TestBothSmallAndPositive()
+        {
+            Fixed<Q24_8> a = new Fixed<Q24_8>(2);
+            Fixed<Q24_8> b = new Fixed<Q24_8>(4);
+            Fixed<Q24_8> r = a.Divide(b);
+            Assert.AreEqual("0.5", r.ToString());
+        }
+
+        [TestMethod]
+        public void DivideQ24_8TestBothSmallOnePositiveOneNegative()
+        {
+            Fixed<Q24_8> a = new Fixed<Q24_8>(1);
+            Fixed<Q24_8> b = new Fixed<Q24_8>(-2);
+            Fixed<Q24_8> r = a.Divide(b);
+            Assert.AreEqual("-0.5", r.ToString());
+        }
+
+        [TestMethod]
+        public void DivideQ24_8TestBothSmallBothNegative()
+        {
+            Fixed<Q24_8> a = new Fixed<Q24_8>(-1);
+            Fixed<Q24_8> b = new Fixed<Q24_8>(-2);
+            Fixed<Q24_8> r = a.Divide(b);
+            Assert.AreEqual("0.5", r.ToString());
+        }
+
+        [TestMethod]
+        public void DivideQ24_8TestUsingBiggerNumberBothPositive()
+        {
+            Fixed<Q24_8> a = new Fixed<Q24_8>(134217728);
+            Fixed<Q24_8> b = new Fixed<Q24_8>(2);
+            Fixed<Q24_8> r = a.Divide(b);
+            Assert.AreEqual("0", r.ToString());
+        }
+
+        [TestMethod]
+        public void DivideQ24_8TestUsingBiggerNumberOnePositiveOneNegative()
+        {
+            Fixed<Q24_8> a = new Fixed<Q24_8>(-134217728);
+            Fixed<Q24_8> b = new Fixed<Q24_8>(2);
+            Fixed<Q24_8> r = a.Divide(b);
+            Assert.AreEqual("0", r.ToString());
+        }
+
+        [TestMethod]
+        public void DivideQ24_8TestUsingBiggerNumberBothNegative()
+        {
+            Fixed<Q24_8> a = new Fixed<Q24_8>(-134217728);
+            Fixed<Q24_8> b = new Fixed<Q24_8>(-1);
+            Fixed<Q24_8> r = a.Divide(b);
+            Assert.AreEqual("0", r.ToString());
         }
     }
 }
