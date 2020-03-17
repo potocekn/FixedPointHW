@@ -30,6 +30,7 @@ namespace Cuni.Arithmetics.FixedPoint
             return 8;
         }
     }
+    
     public struct Fixed<T> where T :FixedPoint, new()
     {
         public readonly int value;
@@ -40,21 +41,26 @@ namespace Cuni.Arithmetics.FixedPoint
             lowerBitsCount = new T().GetLowerBitsCount();
         }
 
-        public Fixed(int value): this()
+        public Fixed(int value)
         {
             this.value = value << lowerBitsCount;
         }
+        public Fixed(long value): this()
+        {
+            this.value = (int)value;
+        }
+
         public override string ToString()
         {
             return (this.value / Math.Pow(2,lowerBitsCount)).ToString();
         }
         public Fixed<T> Add(Fixed<T> what)
         {
-            return new Fixed<T>((int)(this.value + what.value));
+            return new Fixed<T>((long)(this.value + what.value));
         }
         public Fixed<T> Substract(Fixed<T> what)
         {
-            return new Fixed<T>((int)(this.value - what.value));
+            return new Fixed<T>((long)(this.value - what.value));
         }
     }
 }
