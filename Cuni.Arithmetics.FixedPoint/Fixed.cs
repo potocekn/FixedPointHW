@@ -67,5 +67,10 @@ namespace Cuni.Arithmetics.FixedPoint
         {
             return new Fixed<T>((long)(((long)this.value *what.value) /Math.Pow(2,lowerBitsCount)));
         }
+
+        public Fixed<T> Divide(Fixed<T> what)
+        {
+            return new Fixed<T>((long)((((double)this.value*Math.Pow(2, lowerBitsCount)) /what.value)));
+        }
     }
 }
