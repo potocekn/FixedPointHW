@@ -30,7 +30,19 @@ namespace Cuni.Arithmetics.FixedPoint
             return 8;
         }
     }
-    public struct Fixed
+    public struct Fixed<T> where T :FixedPoint, new()
     {
+        public readonly int value;
+        public static int lowerBitsCount;
+
+        static Fixed()
+        {
+            lowerBitsCount = new T().GetLowerBitsCount();
+        }
+
+        public Fixed(int value): this()
+        {
+            this.value = value << lowerBitsCount;
+        }
     }
 }
