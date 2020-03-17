@@ -44,7 +44,10 @@ namespace Cuni.Arithmetics.FixedPoint
         {
             this.value = value << lowerBitsCount;
         }
-
+        public override string ToString()
+        {
+            return (this.value / Math.Pow(2,lowerBitsCount)).ToString();
+        }
         public Fixed<T> Add(Fixed<T> what)
         {
             return new Fixed<T>((int)(this.value + what.value));
