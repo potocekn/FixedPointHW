@@ -22,7 +22,7 @@ namespace FixedPointApiTest
                 var f2 = new Fixed<Q24_8>(2);
                 var f3 = f1.Add(f2);
                 Console.WriteLine($"3 + 2: {f3}");
-
+                /*
                 f3 = f1.Multiply(f2);
                 Console.WriteLine($"3 * 2: {f3}");
 
@@ -44,7 +44,7 @@ namespace FixedPointApiTest
                 f1 = new Fixed<Q24_8>(625);
                 f2 = new Fixed<Q24_8>(1000);
                 f3 = f1.Divide(f2);
-                Console.WriteLine($"625 / 1000: {f3}");
+                Console.WriteLine($"625 / 1000: {f3}"); */
             }
 
             //
@@ -58,7 +58,7 @@ namespace FixedPointApiTest
                 var f2 = new Fixed<Q16_16>(2);
                 var f3 = f1.Add(f2);
                 Console.WriteLine($"3 + 2: {f3}");
-
+                /*
                 f3 = f1.Multiply(f2);
                 Console.WriteLine($"3 * 2: {f3}");
 
@@ -75,7 +75,7 @@ namespace FixedPointApiTest
                 f1 = new Fixed<Q16_16>(625);
                 f2 = new Fixed<Q16_16>(1000);
                 f3 = f1.Divide(f2);
-                Console.WriteLine($"625 / 1000: {f3}");
+                Console.WriteLine($"625 / 1000: {f3}"); */
             }
 
             //
@@ -87,7 +87,7 @@ namespace FixedPointApiTest
                 var f2 = new Fixed<Q8_24>(2);
                 var f3 = f1.Add(f2);
                 Console.WriteLine($"3 + 2: {f3}");
-
+                /*
                 f3 = f1.Multiply(f2);
                 Console.WriteLine($"3 * 2: {f3}");
 
@@ -104,7 +104,7 @@ namespace FixedPointApiTest
                 f1 = new Fixed<Q8_24>(625);
                 f2 = new Fixed<Q8_24>(1000);
                 f3 = f1.Divide(f2);
-                Console.WriteLine($"625 / 1000: {f3}");
+                Console.WriteLine($"625 / 1000: {f3}"); */
             }
         }
     }

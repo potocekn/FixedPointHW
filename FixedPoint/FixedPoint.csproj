@@ -49,5 +49,11 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Cuni.Arithmetics.FixedPoint\Cuni.Arithmetics.FixedPoint.csproj">
+      <Project>{c78f5764-0c45-4ec7-8457-6e73e0d87783}</Project>
+      <Name>Cuni.Arithmetics.FixedPoint</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

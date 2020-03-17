@@ -44,5 +44,14 @@ namespace Cuni.Arithmetics.FixedPoint
         {
             this.value = value << lowerBitsCount;
         }
+
+        public Fixed<T> Add(Fixed<T> what)
+        {
+            return new Fixed<T>((int)(this.value + what.value));
+        }
+        public Fixed<T> Substract(Fixed<T> what)
+        {
+            return new Fixed<T>((int)(this.value - what.value));
+        }
     }
 }
